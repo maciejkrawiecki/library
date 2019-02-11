@@ -1,0 +1,5 @@
+CREATE DATABASE dbLibrary;
+CREATE DATABASE dbLibraryTest;
+CREATE USER 'LibraryUser'@'localhost' IDENTIFIED BY 'LibraryPassword';
+GRANT ALL ON dbLibrary.* TO 'LibraryUser'@'localhost';
+GRANT ALL ON dbLibraryTest.* TO 'LibraryUser'@'localhost';
