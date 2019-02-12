@@ -24,13 +24,13 @@ public class Converter {
         return authors.stream().map(Converter::convertAuthorToAuthorTO).collect(Collectors.toList());
     }
 
-    public static Book mapBookTOtoBook(BookTO bookTO) {
+    public static Book convertBookTOtoBook(BookTO bookTO) {
         return new Book()
                 .setNumberOfPages(bookTO.getNumbersOfPages())
                 .setTitle(bookTO.getTitle());
     }
 
-    private static BookTO mapBookToBookTO(Book book) {
+    private static BookTO convertBookToBookTO(Book book) {
         return new BookTO()
                 .setId(book.getId())
                 .setNumbersOfPages(book.getNumberOfPages())
@@ -38,8 +38,8 @@ public class Converter {
                 .setAuthorId(book.getAuthor().getId());
     }
 
-    public static List<BookTO> mapBooksToBookTOs(List<Book> books) {
-        return books.stream().map(Converter::mapBookToBookTO).collect(Collectors.toList());
+    public static List<BookTO> convertBooksToBookTOs(List<Book> books) {
+        return books.stream().map(Converter::convertBookToBookTO).collect(Collectors.toList());
     }
 
 
