@@ -1,7 +1,5 @@
 package com.library.model.client;
 
-import com.library.model.server.Author;
-
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -13,7 +11,7 @@ public class BookTO {
     @NotNull
     private Integer numbersOfPages;
     @NotNull
-    private Author author;
+    private Long authorId;
 
     public Long getId() {
         return id;
@@ -42,12 +40,12 @@ public class BookTO {
         return this;
     }
 
-    public Author getAuthor() {
-        return author;
+    public Long getAuthorId() {
+        return authorId;
     }
 
-    public BookTO setAuthor(Author author) {
-        this.author = author;
+    public BookTO setAuthorId(Long authorId) {
+        this.authorId = authorId;
         return this;
     }
 }
