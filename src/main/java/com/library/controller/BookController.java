@@ -3,6 +3,7 @@ package com.library.controller;
 import com.library.model.client.BookTO;
 import com.library.service.BookService;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,12 +22,14 @@ public class BookController {
     }
 
     @PostMapping(booksPath)
+    @PreAuthorize("hasRole('USER')")
     @ResponseStatus(HttpStatus.CREATED)
     public void createBook(@Valid @RequestBody BookTO bookTO) {
         bookService.createBook(bookTO);
     }
 
     @GetMapping(booksPath)
+    @PreAuthorize("hasRole('USER')")
     @ResponseStatus(HttpStatus.OK)
     public @ResponseBody
     List<BookTO> getBooks() {

@@ -4,6 +4,7 @@ import com.library.model.client.request.LoginRequest;
 import com.library.model.client.request.RegisterRequest;
 import com.library.model.client.response.JwtAuthenticationResponse;
 import com.library.service.AuthService;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
