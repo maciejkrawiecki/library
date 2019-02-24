@@ -24,7 +24,7 @@ public class BookService {
     }
 
     public void createBook(BookTO bookTO) {
-        Optional<Author> optionalAuthor = authorRepository.findById(bookTO.getId());
+        Optional<Author> optionalAuthor = authorRepository.findById(bookTO.getAuthorId());
 
         if (optionalAuthor.isPresent()) {
             Author author = optionalAuthor.get();
