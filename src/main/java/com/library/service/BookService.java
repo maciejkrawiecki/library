@@ -47,4 +47,8 @@ public class BookService {
     public List<BookTO> getBooksByAuthor(String authorName) {
         return convertBooksToBookTOs(bookRepository.findAllByAuthor_Name(authorName));
     }
+
+    public void deleteBook(Long bookId) {
+        bookRepository.delete(bookRepository.findBookById(bookId));
+    }
 }

@@ -42,4 +42,12 @@ public class BookController {
     List<BookTO> getBooksByAuthor(@PathVariable String authorName) {
         return bookService.getBooksByAuthor(authorName);
     }
+
+    @DeleteMapping(booksPath+"/{bookId}")
+    @PreAuthorize("hasRole('USER')")
+    @ResponseStatus(HttpStatus.OK)
+    public void deleteBook (@Valid @PathVariable ("bookId") Long bookId){
+        bookService.deleteBook(bookId);
+    }
+
 }
