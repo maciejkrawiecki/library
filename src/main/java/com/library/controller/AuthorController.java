@@ -2,6 +2,7 @@ package com.library.controller;
 
 import com.library.model.client.AuthorTO;
 import com.library.service.AuthorService;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -37,5 +38,12 @@ public class AuthorController {
     public @ResponseBody
     List<AuthorTO> getAuthors() {
         return authorService.getAuthors();
+    }
+
+    @DeleteMapping (authorsPath+"/{authorId}")
+    @PreAuthorize("hasRole('USER')")
+    @ResponseStatus(OK)
+    public void deleteBook (@Valid @PathVariable ("authorId") Long authorId){
+        authorService.deleteAuthor(authorId);
     }
 }

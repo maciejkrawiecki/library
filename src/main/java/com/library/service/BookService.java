@@ -50,5 +50,6 @@ public class BookService {
 
     public void deleteBook(Long bookId) {
         bookRepository.delete(bookRepository.findBookById(bookId));
+
     }
 }

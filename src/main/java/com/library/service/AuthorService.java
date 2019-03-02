@@ -29,4 +29,8 @@ AuthorService {
     public List<AuthorTO> getAuthors() {
         return convertAuthorsToAuthorTOs(authorRepository.findAll());
     }
+
+    public void deleteAuthor(Long authorId) {
+        authorRepository.delete(authorRepository.findAuthorById(authorId));
+    }
 }
